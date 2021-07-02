@@ -1,0 +1,78 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#Muhammad Ramadzikri Rafansya
+#20523123
+
+```{r}
+library(cmna)
+library(Deriv)
+```
+
+```{r}
+#1-a
+
+f <- function(x){
+  sqrt(x)- cos(x)
+}
+
+curve(f, xlim=c(0,1), col = 'red', lwd=1, lty=2)
+abline(h=0)
+abline(v=0)
+
+bisection(f, 0,1)
+```
+
+```{r}
+#1-b
+
+f <- function(x){
+  3*(x+1)*(x-1/2)*(x-1)
+}
+
+curve(f, xlim=c(0,1), col = 'blue', lwd=1, lty=2)
+abline(h=0)
+abline(v=0)
+
+bisection(f, -2, 1.5)
+bisection(f, -1.25,2.5)
+```
+
+```{r}
+#1-c
+
+f <- function(x){
+  x^3-2*x^2+14*x-6
+}
+
+curve(f, xlim=c(0,1), col = 'blue', lwd=1, lty=2)
+abline(h=0)
+abline(v=0)
+
+bisection(f, 0, 1, tol = 10^-2)
+bisection(f, 1, 1.32, tol = 10^-2)
+bisection(f, 3.2, 4, tol = 10^-2)
+```
+```{r}
+#2-a
+f2 <- function(x){
+  x^2 - 6}
+  
+fp <- Deriv(f2)
+fp
+
+newton (f2, fp, 1)
+```
+```{r}
+#2-b
+
+f2 <- function(x){
+  x^3 - 2*x^2 + 14*x - 6}
+  
+fp <- Deriv(f2)
+fp
+
+newton (f2, fp, 1.5)
+```
